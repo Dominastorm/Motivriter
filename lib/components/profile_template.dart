@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motivriter/components/book_template.dart';
+import 'package:motivriter/components/stat_template.dart';
 import '../colors.dart';
 import 'chapter_template.dart';
 import 'common_top_bar.dart';
@@ -66,8 +67,8 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                   children: [
                     Text(name,
                         style: TextStyle(
-                          fontSize: screenHeight * 0.03,
-                          fontWeight: FontWeight.bold,
+                          fontSize: screenHeight * 0.035,
+                          fontWeight: FontWeight.w600,
                         )),
                     Text(
                       username,
@@ -183,40 +184,59 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
               child: SingleChildScrollView(
                   child: Column(
             children: [
-              BookTemplate(
-                imageName: 'Assets/welcome_three.png',
-                bookName: 'Book 2',
-                wordCount: 3914,
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ChapterTemplate()));
-                },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  StatTemplate(
+                    iconName: 'Assets/welcome_three.png',
+                    statName: 'Day Streak',
+                    value: 123,
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChapterTemplate()));
+                    },
+                  ),
+                  StatTemplate(
+                    iconName: 'Assets/welcome_three.png',
+                    statName: 'Total XP',
+                    value: 3667,
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChapterTemplate()));
+                    },
+                  ),
+                ],
               ),
-              SizedBox(height: screenHeight * 0.015),
-              BookTemplate(
-                imageName: 'Assets/welcome_one.png',
-                bookName: 'Book 3',
-                wordCount: 17824,
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ChapterTemplate()));
-                },
-              ),
-              SizedBox(height: screenHeight * 0.015),
-              BookTemplate(
-                imageName: 'Assets/welcome_two.png',
-                bookName: 'Book 4',
-                wordCount: 1892,
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ChapterTemplate()));
-                },
+              SizedBox(height: screenHeight * 0.01),
+              Row(
+                children: [
+                  StatTemplate(
+                    iconName: 'Assets/welcome_three.png',
+                    statName: 'Word Count',
+                    value: 2803,
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChapterTemplate()));
+                    },
+                  ),
+                  StatTemplate(
+                    iconName: 'Assets/welcome_three.png',
+                    statName: 'Minutes',
+                    value: 369,
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChapterTemplate()));
+                    },
+                  ),
+                ],
               ),
             ],
           )))
