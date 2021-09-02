@@ -49,6 +49,7 @@ class _SetGoalTemplateState extends State<SetGoalTemplate> {
                 padding: EdgeInsets.fromLTRB(screenWidth * 0.07,
                     screenHeight * 0.02, 0, screenHeight * 0.02),
                 child: TextFormField(
+                  textAlign: TextAlign.center,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Enter word count...",
