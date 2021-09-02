@@ -3,6 +3,7 @@ import 'package:motivriter/components/book_template.dart';
 import '../colors.dart';
 import 'chapter_template.dart';
 import 'common_top_bar.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class ProfileTemplate extends StatefulWidget {
   const ProfileTemplate({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class ProfileTemplate extends StatefulWidget {
 }
 
 class _ProfileTemplateState extends State<ProfileTemplate> {
-  int streak = 10, points = 11, words = 12;
+  int streak = 10, points = 11, words = 12, progress = 40;
   final String profilePicture = 'Assets/profile.png';
   final String name = "Deepthi Dayanand",
       username = "deepschweep",
@@ -55,7 +56,7 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
               )
             ],
           ),
-          SizedBox(height: screenHeight * 0.05),
+          SizedBox(height: screenHeight * 0.02),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -72,14 +73,13 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                       username,
                       style: TextStyle(
                         fontSize: screenHeight * 0.02,
-                      color: grey,
-                    ),
+                        color: grey,
+                      ),
                     ),
                     Row(
                       children: [
-                        Icon(
-                          Icons.access_alarm_rounded,
-                          size: screenHeight*0.025),
+                        Icon(Icons.access_alarm_rounded,
+                            size: screenHeight * 0.025),
                         Text(
                           "Joined ${doj}",
                         ),
@@ -87,32 +87,29 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                     ),
                   ],
                 ),
-                Stack(
-                  children: [
-                    Image.asset(profilePicture),
-                    Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 0.0, vertical: 0.0),
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: InkWell(
-                    child: CircleAvatar(
-                    radius: screenHeight * 0.02,
-                    backgroundColor: mainBlue,
-                    child: Center(
-                      child: Icon(
-                        Icons.edit,
-                        size: screenHeight * 0.025,
-                        color: black,
+                Stack(children: [
+                  Image.asset(profilePicture),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 0.0, vertical: 0.0),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: InkWell(
+                        child: CircleAvatar(
+                          radius: screenHeight * 0.02,
+                          backgroundColor: mainBlue,
+                          child: Center(
+                            child: Icon(
+                              Icons.edit,
+                              size: screenHeight * 0.025,
+                              color: black,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    ),
-                  ),
-                ),
-              )
-                    // This is a comment
-                  ]
-                ),
+                  )
+                ]),
               ],
             ),
           ),
@@ -133,27 +130,32 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                     "Your Progress",
                     style: TextStyle(
                       color: Colors.black,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.bold,
                       fontSize: screenHeight * 0.03,
                     ),
                   ),
-                  Text(
-                    "  40%"
-                  )
+                  Text("  $progress%",
+                      style: TextStyle(
+                        fontSize: screenHeight * 0.025,
+                      )
+                  ),
                 ],
               ),
             ),
           ),
-          SizedBox(height: screenHeight * 0.02),
-          BookTemplate(
-            imageName: 'Assets/login_one.png',
-            bookName: 'Book 1',
-            wordCount: 1234,
-            onTap: () {
-              print('hi');
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ChapterTemplate()));
-            },
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 10.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              child: LinearPercentIndicator(
+                animation: true,
+                lineHeight: 20.0,
+                animationDuration: 3000,
+                percent: progress / 100,
+                linearStrokeCap: LinearStrokeCap.roundAll,
+                progressColor: Colors.blueAccent,
+              ),
+            ),
           ),
           Divider(
             height: 40.0,
@@ -163,14 +165,14 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
             endIndent: 20.0,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22.0),
+            padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 5.0),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "All Notebooks",
+                "Statistics",
                 style: TextStyle(
                   color: Colors.black,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.bold,
                   fontSize: screenHeight * 0.03,
                 ),
               ),
