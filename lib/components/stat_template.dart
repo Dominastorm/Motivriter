@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../colors.dart';
 
 class StatTemplate extends StatefulWidget {
-  final String iconName, statName;
+  final String statName;
+  final Icon iconName;
   final int value;
   final Function onTap;
   const StatTemplate(
@@ -36,7 +37,8 @@ class _StatTemplateState extends State<StatTemplate> {
               child: ListTile(
                 leading: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(widget.iconName)),
+                    child: widget.iconName
+                    ),
                 title: Text(
                   "${widget.value}",
                     style: TextStyle(

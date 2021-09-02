@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motivriter/components/book_template.dart';
+import 'package:motivriter/components/dock_template.dart';
 import '../colors.dart';
 import 'chapter_template.dart';
 import 'common_top_bar.dart';
@@ -12,7 +13,7 @@ class HomeScreenTemplate extends StatefulWidget {
 }
 
 class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
-  int streak = 10, points = 11, words = 12;
+  int streak = 120, points = 231, words = 34567;
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -85,7 +86,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
                           size: screenHeight * 0.04,
                         ),
                         Text(
-                          '$streak',
+                          '$points',
                           style: TextStyle(color: mainBlue, fontSize: 20),
                         ),
                       ],
@@ -103,7 +104,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
                           size: screenHeight * 0.04,
                         ),
                         Text(
-                          '$streak',
+                          '$words',
                           style: TextStyle(color: mainBlue, fontSize: 20),
                         ),
                       ],
@@ -169,6 +170,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
           ),
           SizedBox(height: screenHeight * 0.02),
           Container(
+            height: screenHeight*0.3,
               child: SingleChildScrollView(
                   child: Column(
             children: [
@@ -183,7 +185,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
               ),
               SizedBox(height: screenHeight * 0.015),
               BookTemplate(
-                imageName: 'Assets/welcome_one.png',
+                imageName: 'Assets/welcome_two.png',
                 bookName: 'Book 3',
                 wordCount: 17824,
                 onTap: () {
@@ -193,7 +195,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
               ),
               SizedBox(height: screenHeight * 0.015),
               BookTemplate(
-                imageName: 'Assets/welcome_two.png',
+                imageName: 'Assets/login_one.png',
                 bookName: 'Book 4',
                 wordCount: 1892,
                 onTap: () {
@@ -202,7 +204,8 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
             },
               ),
             ],
-          )))
+          ))),
+          DockTemplate(),
         ],
       ),
     ));

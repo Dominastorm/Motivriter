@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motivriter/components/book_template.dart';
+import 'package:motivriter/components/dock_template.dart';
 import 'package:motivriter/components/stat_template.dart';
 import '../colors.dart';
 import 'chapter_template.dart';
@@ -185,29 +186,39 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                   child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  StatTemplate(
-                    iconName: 'Assets/welcome_three.png',
-                    statName: 'Day Streak',
-                    value: 123,
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChapterTemplate()));
-                    },
+                  Expanded(
+                    child: StatTemplate(
+                      iconName: Icon(
+                        Icons.whatshot,
+                        size: screenHeight * 0.045,
+                        color: mainBlue,),
+                      statName: 'Day Streak',
+                      value: 123,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChapterTemplate()));
+                      },
+                    ),
                   ),
-                  StatTemplate(
-                    iconName: 'Assets/welcome_three.png',
-                    statName: 'Total XP',
-                    value: 3667,
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChapterTemplate()));
-                    },
+                  Expanded(
+                    child: StatTemplate(
+                      iconName: Icon(
+                        Icons.assistant_outlined,
+                        size: screenHeight * 0.045,
+                        color: mainBlue,
+                        ),
+                      statName: 'Total XP',
+                      value: 3667,
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ChapterTemplate()));
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -215,7 +226,11 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
               Row(
                 children: [
                   StatTemplate(
-                    iconName: 'Assets/welcome_three.png',
+                    iconName: Icon(
+                      Icons.title,
+                      size: screenHeight * 0.045,
+                      color: mainBlue,
+                      ),
                     statName: 'Word Count',
                     value: 2803,
                     onTap: () {
@@ -226,9 +241,12 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                     },
                   ),
                   StatTemplate(
-                    iconName: 'Assets/welcome_three.png',
-                    statName: 'Minutes',
-                    value: 369,
+                    iconName: Icon(
+                      Icons.alarm_outlined,
+                      size: screenHeight * 0.045,
+                      color: mainBlue,),
+                    statName: 'Mins. Typed',
+                    value: 36,
                     onTap: () {
                       Navigator.push(
                           context,
@@ -236,11 +254,15 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                               builder: (context) => ChapterTemplate()));
                     },
                   ),
+                  
                 ],
               ),
             ],
-          )))
+          ))),
+          SizedBox(height: screenHeight * 0.05),
+          DockTemplate(),
         ],
+
       ),
     ));
   }

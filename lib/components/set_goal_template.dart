@@ -65,7 +65,7 @@ class _SetGoalTemplateState extends State<SetGoalTemplate> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ProfileTemplate()));
+                          builder: (context) => HomeScreenTemplate()));
                 },
                 child: CircleAvatar(
                     radius: screenHeight * 0.04,
