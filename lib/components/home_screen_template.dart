@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motivriter/components/book_template.dart';
 import 'package:motivriter/components/dock_template.dart';
+import 'package:motivriter/components/settings_screen.dart';
 import '../colors.dart';
 import 'chapter_template.dart';
 import 'common_top_bar.dart';
@@ -43,6 +44,10 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: InkWell(
+                     onTap: () {                      
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SettingsScreen()));
+                    },
                     child: Icon(
                       Icons.settings,
                       color: white,
@@ -139,7 +144,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
           SizedBox(height: screenHeight * 0.02),
           BookTemplate(
             imageName: 'Assets/login_one.png',
-            bookName: 'Book 1',
+            bookName: 'Stream of Consciousness',
             wordCount: 1234,
             onTap: () {
               print('hi');
@@ -176,7 +181,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
             children: [
               BookTemplate(
                 imageName: 'Assets/welcome_three.png',
-                bookName: 'Book 2',
+                bookName: 'Lost Days',
                 wordCount: 3914,
                 onTap: () {
               Navigator.push(context,
@@ -186,7 +191,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
               SizedBox(height: screenHeight * 0.015),
               BookTemplate(
                 imageName: 'Assets/welcome_two.png',
-                bookName: 'Book 3',
+                bookName: 'Stormy Nights',
                 wordCount: 17824,
                 onTap: () {
               Navigator.push(context,
@@ -196,7 +201,7 @@ class _HomeScreenTemplateState extends State<HomeScreenTemplate> {
               SizedBox(height: screenHeight * 0.015),
               BookTemplate(
                 imageName: 'Assets/login_one.png',
-                bookName: 'Book 4',
+                bookName: 'Dark Childhood',
                 wordCount: 1892,
                 onTap: () {
               Navigator.push(context,

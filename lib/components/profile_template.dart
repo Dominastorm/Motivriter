@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motivriter/components/book_template.dart';
 import 'package:motivriter/components/dock_template.dart';
+import 'package:motivriter/components/settings_screen.dart';
 import 'package:motivriter/components/stat_template.dart';
 import '../colors.dart';
 import 'chapter_template.dart';
@@ -49,6 +50,10 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: InkWell(
+                    onTap: () {                      
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SettingsScreen()));
+                    },
                     child: Icon(
                       Icons.settings,
                       color: white,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:motivriter/components/profile_template.dart';
 
 import '../colors.dart';
+import 'find_friends_template.dart';
 import 'home_screen_template.dart';
 
 class DockTemplate extends StatefulWidget {
@@ -69,7 +70,7 @@ class _DockTemplateState extends State<DockTemplate> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ProfileTemplate()),
+                          builder: (context) => FindFriendsTemplate()),
                     );
                   },
                   child: Icon(
