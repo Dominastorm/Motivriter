@@ -110,7 +110,7 @@ class _ProfileTemplateState extends State<ProfileTemplate> {
                   ),
                 ),
               )
-                    
+                    // This is a comment
                   ]
                 ),
               ],
