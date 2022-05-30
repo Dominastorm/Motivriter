@@ -4,6 +4,6 @@ An app to gamify the experience of writing everyday while connecting with your f
 
 ## Contributors
 
-Deepthi Dayanand
-Dhruv Chawla
-Dhruv Suavarna
+-Deepthi Dayanand
+-Dhruv Chawla
+-Dhruv Suavarna
